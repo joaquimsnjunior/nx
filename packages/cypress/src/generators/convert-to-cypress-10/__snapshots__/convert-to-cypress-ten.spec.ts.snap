@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`convertToCypressTen updateImports should update imports 1`] = `
+"
+import { getGreeting } from '../support/app.po';
+
+import { blah } from '../support/e2e';
+const eh = require('../support/e2e')
+
+import { blah } from '../support/e2e';
+const eh = require('../support/e2e')
+
+describe('a', () => {
+  beforeEach(() => {
+    cy.visit('/')
+    blah()
+    eh()
+  });
+
+  it('should display welcome message', () => {
+    // Custom command example, see \\\\\`../support/commands.ts\\\\\` file
+    cy.login('my-email@something.com', 'myPassword');
+
+    // Function helper example, see \\\\\`../support/app.po.ts\\\\\` file
+    getGreeting().contains('Welcome a');
+  });
+});
+
+"
+`;
+
+exports[`convertToCypressTen verifyProjectForUpgrade should allow upgrade 1`] = `
+Object {
+  "cypressConfigPathJson": "apps/app-e2e/cypress.json",
+  "cypressConfigPathTs": "apps/app-e2e/cypress.config.ts",
+  "shouldUpgrade": true,
+}
+`;
+
+exports[`convertToCypressTen verifyProjectForUpgrade should not upgrade if both cypress configs are present 1`] = `
+Object {
+  "cypressConfigPathJson": "apps/app-e2e/cypress.json",
+  "cypressConfigPathTs": "apps/app-e2e/cypress.config.ts",
+  "shouldUpgrade": false,
+}
+`;
+
+exports[`convertToCypressTen verifyProjectForUpgrade should not upgrade if not using cypress executor 1`] = `
+Object {
+  "cypressConfigPathJson": "apps/app-e2e/cypress.json",
+  "cypressConfigPathTs": "apps/app-e2e/cypress.config.ts",
+  "shouldUpgrade": false,
+}
+`;
