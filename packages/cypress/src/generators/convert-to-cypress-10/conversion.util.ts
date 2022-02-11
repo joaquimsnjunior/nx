@@ -43,7 +43,6 @@ export function updateProject(tree: Tree, options: CypressConvertOptions) {
 
     updateProjectPaths(tree, projectConfig, cypressConfigs);
 
-    // TODO(caleb): what about cypress.env.json?
     tree.write(
       cypressConfigPathTs,
       String.raw`
@@ -58,6 +57,7 @@ export default defineConfig(${inspect(cypressConfigs.cypressConfigTs)})
     projectConfig.targets[target].options = {
       ...projectConfig.targets[target].options,
       cypressConfig: cypressConfigPathTs,
+      testingType: 'e2e',
     };
 
     updateProjectConfiguration(tree, options.project, projectConfig);
